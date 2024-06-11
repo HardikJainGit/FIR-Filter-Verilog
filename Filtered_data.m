@@ -5,17 +5,11 @@ fclose(fid);
 
 % Create a time vector
 fs = 44100; % Sample rate
-duration = 0.01; % Duration in seconds
-t = 0:1/fs:duration;
+duration = length(integers) / fs * 2; 
+t = linspace(0, duration, length(integers));
 
-% Create a smoother sine wave using the integers as amplitudes
-sine_wave = zeros(size(t));
-for i = 1:length(integers)
-    sine_wave = sine_wave + integers(i) * sin(2*pi*440*t);
-end
-
-% Plot the sine wave
-plot(t, sine_wave);
+% Plot the integers over time
+plot(t, integers);
 xlabel('Time (s)');
 ylabel('Amplitude');
-title('Sine Wave from Integers');
+title('Integers over Time');

@@ -50,7 +50,7 @@ initial begin
     if (file != 0) begin
         $display("Opened data_out.txt for writing");
         $display("Waiting for valid data_out...");
-        while (valid_count < 32) begin
+        while (valid_count < 128) begin
             @(posedge clk);
             if (data_out !== 16'bxxxx) begin
                 // Sign extend the 16-bit value to 32 bits

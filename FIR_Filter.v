@@ -1,12 +1,10 @@
 `timescale 1ns / 1ps
 
-module FIR_Filter(clk, reset, data_in, data_out);
-
-parameter N = 16;
-
-input clk, reset;
-input [N-1:0] data_in;
-output reg [N-1:0] data_out; 
+module FIR_Filter#(parameter N=16)(
+    input clk, reset,
+    input [N-1:0] data_in,
+    output reg [N-1:0] data_out
+);
 
 // coefficients definition
 // Moving Average Filter, 15th order (16-point FIR filter)

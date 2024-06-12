@@ -1,5 +1,7 @@
 % Generate a sine wave
 % close all; clear all;
+
+% Total samples = fs * 2*pi * f = 31
 fs = 5;
 Amp = 1;
 t = 0:1/fs:2*pi; % time vector

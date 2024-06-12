@@ -24,10 +24,11 @@ This project involves designing and implementing a Finite Impulse Response (FIR)
 
 ## Original Sine Wave's Bitstream Converted to Analog Signal in MATLAB
 
-![Original Bitstream to Analog](https://github.com/HardikJainGit/FIR-Filter-Verilog/assets/133627261/5590d963-9f01-4ef7-860e-a608c109cd07)
+![untitled2](https://github.com/HardikJainGit/FIR-Filter-Verilog/assets/133627261/6c8b1f30-31af-4817-887b-6bd743bcbd01)
 
 <br><br>
 
 ## Filtered Sine Wave's Bitstream Extracted from Bitstream Generated in Xilinx Vivado Converted to Analog Signal (Filtered Version of Original Wave) in MATLAB
 
-![Filtered Bitstream to Analog](https://github.com/HardikJainGit/FIR-Filter-Verilog/assets/133627261/2a7c3b27-b05f-4e39-967c-859889ab3950)
+![untitled1](https://github.com/HardikJainGit/FIR-Filter-Verilog/assets/133627261/9225330c-999b-48f5-acd7-a868e972ba08)
+

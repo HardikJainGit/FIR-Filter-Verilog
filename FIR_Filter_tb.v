@@ -1,6 +1,7 @@
 `timescale 1ns / 1ps
 
-module FIR_TB; 
+module FIR_TB(
+);
 
 parameter N = 16;
 
@@ -9,7 +10,9 @@ reg [N-1:0] data_in;
 wire [N-1:0] data_out; 
 wire [N-1:0] input_stream = data_in << 6;  // scaling just for better visibility in simulation
 
-FIR_Filter inst0(clk, reset, data_in, data_out);
+FIR_Filter inst0(
+    clk, reset, data_in, data_out
+);
 
 // Create the RAM
 reg [N-1:0] RAMM [0:31]; // memory of 32 words with 16 bits each 
@@ -45,7 +48,6 @@ end
 
 integer file;
 integer valid_count;
-integer signed_data_out;
 
 initial 
 begin
@@ -58,9 +60,9 @@ begin
             @(posedge clk);
             if (data_out !== 16'bxxxx) begin
                 // Convert to signed decimal
-                $fwrite(file, "%d\n", signed_data_out);
+                $fwrite(file, "%d\n", data_out);
                 valid_count = valid_count + 1;
-                $display("Valid data_out written: %d", signed_data_out);
+                $display("Valid data_out written: %d", data_out);
             end
         end
         $fclose(file);

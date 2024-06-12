@@ -1,11 +1,11 @@
 `timescale 1ns / 1ps
 
-module DFF(clk, reset, data_in, data_delayed);
-    parameter N = 16;
-    input clk, reset;
-    input [N-1:0] data_in;
-    output [N-1:0] data_delayed; 
-    
+module DFF#(parameter N = 16)(    
+    input clk, reset,
+    input [N-1:0] data_in,
+    output [N-1:0] data_delayed
+);
+
     reg [N-1:0] Q_reg, Q_next;
     
     // Asynchronous reset

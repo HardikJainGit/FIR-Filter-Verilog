@@ -48,6 +48,7 @@ end
 
 integer file;
 integer valid_count;
+integer signed_data_out;
 
 initial 
 begin
@@ -59,10 +60,12 @@ begin
         while (valid_count < 128) begin // it is periodic ; taking first 128 values for few cycles
             @(posedge clk);
             if (data_out !== 16'bxxxx) begin
-                // Convert to signed decimal
-                $fwrite(file, "%d\n", data_out);
+                // Sign extend the 16-bit value to 32 bits
+                signed_data_out = {{16{data_out[15]}}, data_out};
+                // Convert to decimal
+                $fwrite(file, "%d\n", signed_data_out);
                 valid_count = valid_count + 1;
-                $display("Valid data_out written: %d", data_out);
+                $display("Valid data_out written: %d", signed_data_out);
             end
         end
         $fclose(file);

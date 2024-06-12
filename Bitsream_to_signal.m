@@ -4,7 +4,7 @@ integers = fscanf(fid, '%d');
 fclose(fid);
 
 % Create a time vector
-fs = 44100; % Sample rate
+fs = 5; % Sample rate
 duration = length(integers) / fs * 2; 
 t = linspace(0, duration, length(integers));
 

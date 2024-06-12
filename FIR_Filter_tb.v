@@ -7,16 +7,16 @@ parameter N = 16;
 reg clk, reset;
 reg [N-1:0] data_in;
 wire [N-1:0] data_out; 
-wire [N-1:0] input_stream = data_in << 6; 
+wire [N-1:0] input_stream = data_in << 6;  // scaling just for better visibility in simulation
 
 FIR_Filter inst0(clk, reset, data_in, data_out);
 
-// input sine wave data
+// Create the RAM
+reg [N-1:0] RAMM [0:31]; // memory of 32 words with 16 bits each 
+
+// read input sine wave's bistream
 initial
 $readmemb("signal.data", RAMM);
-
-// Create the RAM
-reg [N-1:0] RAMM [31:0]; 
 
 // create a clock
 initial 
@@ -24,12 +24,13 @@ clk = 0;
 always 
 #10 clk = ~ clk;  
 
-// Read RAMM data and give to design
-always@(posedge clk)
-    data_in <= RAMM[Address]; 
-    
-// Address counter
+// Address counter 
 reg [4:0] Address; 
+
+// Read RAM data to create input bitstream
+always@(posedge clk)
+    data_in <= RAMM[Address];  // referring to the 16 bit entry at address = Address
+    
 initial
 Address = 1; 
 always@(posedge clk)
@@ -40,22 +41,23 @@ begin
         Address = Address + 1; 
 end     
 
-// Write data_out to a file
+// Write data_out to a file to generate filtered wave's bitstream 
+
 integer file;
 integer valid_count;
 integer signed_data_out;
-initial begin
+
+initial 
+begin
     file = $fopen("data_out.txt", "w");
     valid_count = 0;
     if (file != 0) begin
         $display("Opened data_out.txt for writing");
         $display("Waiting for valid data_out...");
-        while (valid_count < 128) begin
+        while (valid_count < 128) begin // it is periodic ; taking first 128 values for few cycles
             @(posedge clk);
             if (data_out !== 16'bxxxx) begin
-                // Sign extend the 16-bit value to 32 bits
-                signed_data_out = {{16{data_out[15]}}, data_out};
-                // Convert to decimal
+                // Convert to signed decimal
                 $fwrite(file, "%d\n", signed_data_out);
                 valid_count = valid_count + 1;
                 $display("Valid data_out written: %d", signed_data_out);

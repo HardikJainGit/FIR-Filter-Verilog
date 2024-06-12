@@ -6,6 +6,8 @@ fclose(fid);
 % Create a time vector
 fs = 5; % Sample rate
 duration = length(integers) / fs; 
+
+% Create a linear vector with 5 samples per second
 t = linspace(0, duration, length(integers));
 
 % Plot the integers over time

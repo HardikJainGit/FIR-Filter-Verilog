@@ -13,8 +13,12 @@ sine_wave = Amp*sin(t);
 % Add a noise
 a = 0.5; % upper limit
 b = -0.5; % lower limit
+
+% (b-a) * [0,1] + a gives value between [a,b] and take transpose
 noise = (b-a).*rand(length(sine_wave),1) + a; noise = noise';
 sine_noise = (sine_wave + noise);
+
+ % get between -1 to 1
 sine_norm = sine_noise / max(abs(sine_noise));
 % figure();plot(1:length(sine_norm), sine_norm);
 % xlabel('\bf Time');

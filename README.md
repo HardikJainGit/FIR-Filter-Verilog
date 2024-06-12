@@ -1,10 +1,10 @@
-# FIR Filter Project
+# FIR Filter
 
 ## Description
 
 This project involves designing and implementing a Finite Impulse Response (FIR) filter using Verilog. The filter was tested and simulated in Vivado Xilinx, and its performance was verified using MATLAB. The images below show the original sine wave, the bitstream converted to an analog signal, and the filtered sine wave.
 
-## Tech Stack
+## Technologies used
 
 - **Verilog**: Used for designing the FIR filter.
 - **Vivado Xilinx**: Used for simulating and testing the Verilog design.

@@ -1,3 +1,5 @@
+`timescale 1ns / 1ps
+
 module DFF(clk, reset, data_in, data_delayed);
     parameter N = 16;
     input clk, reset;

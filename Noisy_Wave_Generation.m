@@ -38,5 +38,5 @@ sine_noise_integers = round(sine_norm.*(2^scaling));
 sine_noise_in_binary_signed = dec2bin(mod((sine_noise_integers),2^total_wordlength),total_wordlength);
 yy = cellstr(sine_noise_in_binary_signed);
 fid = fopen('signal.data', 'wt');
-fprintf(fid, '%8s \n', yy{:});
+fprintf(fid, '%16s \n', yy{:});
 disp('text file for signal finished');

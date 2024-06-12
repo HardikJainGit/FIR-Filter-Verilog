@@ -10,7 +10,7 @@ This project involves designing and implementing a Finite Impulse Response (FIR)
 - **Vivado Xilinx**: Used for simulating and testing the Verilog design.
 - **MATLAB**: Used for generating the sine wave, converting bitstreams to analog signals, and visualizing the results.
 
-- ## Frequency Details
+## Frequency Details
 - The original sine wave is generated at 1 Hz and sampled at 5 Hz following *Nyquist* criterion giving 32 samples for one cycle
 - The waves generated in vivado have time period 32 * T_clk = 32 * 20ns = 640ns
 - The filtered bitstream is again reconstructed with the same sampling frequency of 5 Hz to retain the 1 Hz original signal.

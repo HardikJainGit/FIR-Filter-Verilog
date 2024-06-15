@@ -2,12 +2,12 @@
 
 ## Description
 
-This project involves designing and implementing a Finite Impulse Response (FIR) filter using Verilog. The filter was tested and simulated in Vivado Xilinx, and its performance was verified using MATLAB. The images below show the original sine wave, the bitstream converted to an analog signal, and the filtered sine wave.
+This project involves designing and implementing a Finite Impulse Response (FIR) filter using Verilog. The filter was tested and simulated in Xilinx Vivado, and its performance was verified using MATLAB. The images below show the original sine wave, the bitstream converted to an analog signal, and the filtered sine wave.
 
 ## Technologies used
 
 - **Verilog**: Used for designing the FIR filter.
-- **Vivado Xilinx**: Used for simulating and testing the Verilog design.
+- **Xilinx Vivado**: Used for simulating and testing the Verilog design.
 - **MATLAB**: Used for generating the sine wave, converting bitstreams to analog signals, and visualizing the results.
 
 ## Frequency and Timing Details
@@ -17,7 +17,7 @@ This project involves designing and implementing a Finite Impulse Response (FIR)
 - The output wave is delayed by some time due to the 15 flip flops used; it is delayed by 15 * T_clk = 300 ns giving almost 180 degrees of phase lag
 
 
-## Original Sine Wave Generated in MATLAB Filtered in Vivado Xilinx
+## Original Sine Wave Generated in MATLAB Filtered in Xilinx Vivado 
 
 ![Original Sine Wave](https://github.com/HardikJainGit/FIR-Filter-Verilog/assets/133627261/aac482d3-a9b5-449a-bf14-2caba95f07ce)
 
